@@ -1,9 +1,10 @@
-import pygame
+"""
+generic class to describe a tetris block
+all dimensions are in terms of grid cells
+indexing starts at (0,0) at top left corner
+orientation goes from 0 to 3 indicating 0 to 270 degrees
+"""
 
-# generic class to describe a tetris block
-# all dimensions are in grid cells
-# indexing starts at (0,0) at top left corner
-# orientation goes from 0 to 3 indicating 0 to 270 degrees
 class Block:
 
     # width and height are the dimensions of a bounding box for the block
@@ -116,8 +117,6 @@ def S2_Block():
 
 
 ## Testing ##
-
-
 if __name__ == '__main__':
     square = Square_Block()
     print square

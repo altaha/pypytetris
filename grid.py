@@ -53,10 +53,10 @@ class Grid:
     def checkcollision(self, block):
         self._assertbounds(block)
         # check all spots in block against grid
-        for i in range(block.y, block.y + block.height):
-            for j in range(block.x, block.x + block.width):
-                if block.spots[i-block.height][i-block.width] > 0 and \
-                   self.grid[i][j].val > 0:
+        for i in range(block.height):
+            for j in range(block.width):
+                if block.spots[i][j] > 0 and \
+                   self.grid[i+block.y][j+block.x].val > 0:
                     return True
         return False
 
@@ -64,11 +64,11 @@ class Grid:
     def addblock(self, block):
         self._assertbounds(block)
         # add block to grid
-        for i in range(block.y, block.y + block.height):
-            for j in range(block.x, block.x + block.width):
-                self.grid[i][j].color = block.color
-                self.grid[i][j].val = \
-                    block.spots[i-block.height][i-block.width]
+        for i in range(block.height):
+            for j in range(block.width):
+                if block.spots[i][j] > 0:
+                    self.grid[i+block.y][j+block.x].color = block.color
+                    self.grid[i+block.y][j+block.x].val = block.spots[i][j]
 
         # check for completed lines and update grid
         for i in range(self.height):
