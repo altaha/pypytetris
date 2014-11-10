@@ -110,10 +110,10 @@ def L2_Block():
     return Block("L2", 3,2, orange, [[0,0,1],[1,1,1]])
 
 def S1_Block():
-    return Block("S1", red, [[1,1,0],[0,1,1]])
+    return Block("S1", 3,2, red, [[1,1,0],[0,1,1]])
 
 def S2_Block():
-    return Block("S2", pink, [[0,1,1],[1,1,0]])
+    return Block("S2", 3,2, pink, [[0,1,1],[1,1,0]])
 
 
 ## Testing ##

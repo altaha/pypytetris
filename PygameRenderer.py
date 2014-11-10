@@ -3,7 +3,7 @@ import block
 import grid
 
 """
-Module to render Tetris game
+Module for rendering to a screen
 Uses pygame for drawing methods
 Draws shapes defined by grid and block objects
 """
@@ -59,8 +59,8 @@ class PgRenderer:
         for i in range(block.height):
             for j in range(block.width):
                 if block.spots[i][j] > 0:
-                    rect = ((j+block.y)*self.celldim, \
-                            (i+block.x)*self.celldim, self.celldim, self.celldim)
+                    rect = ((j+block.x)*self.celldim, \
+                            (i+block.y)*self.celldim, self.celldim, self.celldim)
                     pygame.draw.rect(self.screen, block.color, rect, 0)
                     pygame.draw.rect(self.screen, (0,0,0), rect, 1)
         pygame.display.update()

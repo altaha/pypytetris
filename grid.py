@@ -37,8 +37,8 @@ class Grid:
         return string
 
     # check if block is within the bounds of the grid's dimensions
-    def isinbound(self,block):
-        if block.x > self.width or block.y > self.height:
+    def isinbounds(self,block):
+        if block.x < 0 or block.y < 0:
             return False
         if (block.x + block.width) > self.width or \
            (block.y + block.height) > self.height:
@@ -46,7 +46,7 @@ class Grid:
         return True
 
     def _assertbounds(self, block):
-        if self.isinbound(block) == False:
+        if self.isinbounds(block) == False:
             raise Exception("Block is out of grid bounds")
             
     # check if block touches any filled cell(s)
